@@ -65,3 +65,31 @@
    65  cd ..
    66  ls
    67  history > ansible_hist.txt
+   68  git add . ; git commit -m "Ansible Demo"; git push origin master  
+   69  ls
+   70  ansible web:db -i inventory -m ping -u vagrant -k 
+   71  ansible web:db -i inventory -m ping -u vagrant 
+   72  ls
+   73  cd demo02/
+   74  ls
+   75  ansible web:db -i inventory -m ping 
+   76  ansible 'web:&db' -i inventory -m ping 
+   77  ansible 'all:&db' -i inventory -m ping 
+   78  ansible 'all:&dc' -i inventory -m ping 
+   79  ansible 'all:&dc:!db' -i inventory -m ping 
+   80  ansible 'all:&dc:!dc' -i inventory -m ping 
+   81  ls
+   82  cat inventory 
+   83  cd ..
+   84  ls
+   85  history > ansible_hist.txt 
+   86  ls
+   87  cd demo02/
+   88  ls
+   89  cat inventory 
+   90  ansible 172.31.0.11 -i inventory -m ping 
+   91  ansible 172.31.0.11 -i inventory -m setup 
+   92  cat inventory 
+   93  cd ..
+   94  ls
+   95  history > ansible_hist.txt 
