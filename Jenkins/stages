@@ -1,0 +1,25 @@
+node {
+    
+stage('CheckOut Repo') {    
+   git credentialsId: '01', url: 'https://github.com/amitvashist7/devops-acc-29072019.git'
+}
+  
+  
+  def Project_Path = "atmosphere/spring-boot-samples/spring-boot-sample-atmosphere"
+  
+ dir (Project_Path) { 
+ stage('Clean my Repo') {
+   sh label: '', script: 'mvn clean'
+ }
+ stage('Comiple my Code') {
+   sh label: '', script: 'mvn compile'
+ }
+ stage('Build Atmosphere Package') {
+   sh label: '', script: 'mvn package'
+ }
+ }
+ stage('Archive my Artifacts') {
+ archiveArtifacts "${Project_Path}/target/*.jar"
+ }
+ 
+}

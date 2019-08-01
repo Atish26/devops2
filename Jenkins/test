@@ -1,0 +1,51 @@
+node {
+
+notify('Job has been Initated')
+
+try {
+    
+stage('CheckOut Repo') {    
+   git 'https://github.com/amitvashist7/devops-acc-29072019.git'
+}
+  
+  
+  def Project_Path = "atmosphere/spring-boot-samples/spring-boot-sample-atmosphere"
+  
+ dir (Project_Path) { 
+ stage('Clean my Repo') {
+   sh label: '', script: 'mvn clean'
+ }
+ stage('Comiple my Code') {
+   sh label: '', script: 'mvn compile'
+ }
+ stage('Build Atmosphere Package') {
+   sh label: '', script: 'mvn package'
+ }
+
+ stage('Stage Deployment in Docker Env.') {
+   sh label: '', script: 'docker-compose up -d --build'
+} 
+
+ }
+ stage('Archive my Artifacts') {
+ archiveArtifacts "${Project_Path}/target/*.jar"
+ }
+
+notify ('Job has been completed')
+} catch (err) {
+  notify("Error ${err}")
+  currentBuild.result = 'FAILURE'
+}
+}
+
+
+def notify(status){
+    emailext (
+	to: "amitvashist7@gmail.com",
+	subject: "${status}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+	 body: """<p>${status}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
+	<p>Check console output at <a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a></p>""",
+		)
+	}
+
+

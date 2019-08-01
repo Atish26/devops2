@@ -1,0 +1,155 @@
+    1  ls
+    2  cd 
+    3  ls
+    4  pwd
+    5  history
+    6  locate jar
+    7  ls -la
+    8  cd .jenkins/workspace/Test06/
+    9  ls
+   10  cd atmosphere
+   11  ls
+   12  cd spring-boot-samples
+   13  ll
+   14  cd spring-boot-sample-atmosphere
+   15  ll
+   16  cd target/
+   17  ls
+   18  cp spring-boot-sample-atmosphere-1.4.0.BUILD-SNAPSHOT.jar /root/
+   19  ls
+   20  cd
+   21  ls
+   22  vim Dockerfile
+   23  vim Dockerfile 
+   24  docker build -t "java/atish:v3" .
+   25  systemctl start docker
+   26  curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+   27  chmod +x /usr/local/bin/docker-compose
+   28  docker-compose --version
+   29  chmod +x /usr/local/bin/docker-compose
+   30  docker-compose --version
+   31  curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+   32  chmod +x /usr/local/bin/docker-compose
+   33  docker-compose --version
+   34  docker-compose --version
+   35  /usr/local/bin/docker-compose --version
+   36  curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+   37  cd /usr/local/bin/
+   38  ls
+   39  cd docker-compose
+   40  chmod +x /usr/local/bin/docker-compose
+   41  docker-compose --version
+   42  ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+   43  docker-compose --version
+   44  history
+   45  docker images
+   46  cd
+   47  ls
+   48  kdir docker-compose.yaml
+   49  vim docker-compose.yaml
+   50  vim docker-compose.yaml
+   51  vim docker-compose.yaml
+   52  docker-compose up -d docker-compose.yaml 
+   53  docker-compose up -d
+   54  cat docker-compose.yaml
+   55  docker ps -a
+   56  docker-compose -a
+   57  docker-compose ps -a
+   58  docker-compose ps
+   59  docker ps -a
+   60  docker attach beebc748db28
+   61  docker-compose up -d
+   62  docker ps -a
+   63  docker attach beebc748db28
+   64  docker-compose up -d
+   65  docker attach f8e9fb15b66d
+   66  vim Dockerfile 
+   67  docker attach beebc748db28 /bin/bash
+   68  docker ps -a
+   69  cat docker-compose.yaml
+   70  cd
+   71  ls
+   72  docker ps -a
+   73  docker exec -it beebc748db28 /bin/bash
+   74  vim docker-compose.yaml 
+   75  vim Dockerfile 
+   76  docker images
+   77  docker run -it -p 8099:80 --name copmposetet ubuntu-apache /bin/bash
+   78  docker ps -a
+   79  ls
+   80  docker build -t "Atish/apache" .
+   81  docker build -t "atish/apache" .
+   82  vim Dockerfile 
+   83  docker build -t "atish/apache" .
+   84  vim Dockerfile 
+   85  docker build -t "atish/apache" .
+   86  ls
+   87  docker images
+   88  docker run -it -p 9092:8080 bd7cc262ba6d /bin/bash
+   89  vim Dockerfile 
+   90  vim Dockerfile 
+   91  docker build -t "atish1/apache" .
+   92  ls
+   93  docker ps -a
+   94  docker images
+   95  docker run -it -p 9092:8080 53593b94179f /bin/bash
+   96  docker run -it -p 9093:8080 53593b94179f
+   97  docker run -itd -p 9093:8080 53593b94179f
+   98  docker run -itd -p 9094:8080 53593b94179f /bin/bash
+   99  docker run -itd -p 9095:8080 53593b94179f
+  100  vim docker-compose.yaml 
+  101  docker ps -a
+  102  docker kill 227190c4c83f ce852131a3fb 536a0223ebd3 3dc7cf4e330f 76ed4f67890e f8e9fb15b66d 8023a54ef5c1 7d29ad9789db
+  103  docker ps -a
+  104  docker rm $(docker ps -aq)"
+  105  docker rm "$(docker ps -aq)"
+  106  docker ps -a
+  107  docker rm "$(docker ps -aq)"
+  108  docker kill "$(docker ps -aq)"
+  109  docker rm "$(docker ps -a)"
+  110  docker kill 227190c4c83f ce852131a3fb 536a0223ebd3 85500fde27f3 3dc7cf4e330f 0e3d3bdec6c5 beebc748db28 76ed4f67890e f8e9fb15b66d f8e9fb15b66d d3e048fd853a 8023a54ef5c1 aecb0004b2cf 7d29ad9789db 718eac18dabb
+  111  docker ps
+  112  docker ps -aq
+  113  docker rm 227190c4c83f ce852131a3fb 536a0223ebd3 85500fde27f3 3dc7cf4e330f 0e3d3bdec6c5 beebc748db28 76ed4f67890e f8e9fb15b66d f8e9fb15b66d d3e048fd853a 8023a54ef5c1 aecb0004b2cf 7d29ad9789db 718eac18dabb
+  114  docker ps -a
+  115  docker rm 66e59e48bfe7 0cb51a0579de
+  116  docker ps -a
+  117  docker images
+  118  docker ps -a
+  119  ls
+  120  vim docker-compose.yaml
+  121  ls
+  122  history | grep docker-compose
+  123  vim Dockerfile 
+  124  ls
+  125  ls
+  126  cd devops
+  127  ls
+  128  cd
+  129  ls
+  130  cd devops-acc-29072019/
+  131  ls
+  132  ll
+  133  ls
+  134  cd ..
+  135  ls
+  136  rm -rf devops-acc-29072019
+  137  git clone https://github.com/amitvashist7/devops-acc-29072019.git
+  138  ls
+  139  docker ps -a
+  140  docker images
+  141  docker rmi 0524baebfc59 ec61e731079d 81250418684f 606b59c4089a 
+  142  docker compose stop 
+  143  docker-compose stop 
+  144  ll
+  145  ls
+  146  cd devops-acc-29072019
+  147  ls
+  148  docker run -- restart unless-stopped --name mailhog -p 1025:1025 -p 8025:8025 -d  mailhog/mailhog
+  149  docker run --restart unless-stopped --name mailhog -p 1025:1025 -p 8025:8025 -d mailhog/mailhog
+  150  docker ps -a
+  151  ls
+  152  git pull
+  153  git pull
+  154  history
+  155  history > history

@@ -1,0 +1,288 @@
+   64  ping google.com
+   65  yum install -y yum-utils   device-mapper-persistent-data   lvm2
+   66  yum-config-manager     --add-repo     https://download.docker.com/linux/centos/docker-ce.repo
+   67  yum install docker-ce docker-ce-cli containerd.io
+   68  docker version 
+   69  systemctl start docker.service
+   70  docker version 
+   71  systemctl enable docker.service
+   72  docker --help
+   73  cat /etc/*-release
+   74  docker run ubuntu echo "Welcome to the world of Docker"
+   75  ping google.com
+   76  docker run ubuntu echo "Welcome to the world of Docker"
+   77  docker run ubuntu echo "Hello World"
+   78  docker ps 
+   79  docker ps -a
+   80  docker images
+   81  docker pull busybox 
+   82* docker 
+   83  docker pull centos
+   84  docker images
+   85  docker search ubuntu
+   86  docker pull ubuntu:16.04
+   87  docker images 
+   88  history 
+   89  ls
+   90  cat /etc/*-release
+   91  docker run -it ubuntu 
+   92  docker ps 
+   93  docker ps -a
+   94  docker run -it ubuntu:16.04 
+   95  uname  -a 
+   96  docker ps 
+   97  uptime 
+   98  docker attach c1b588b1c95b
+   99  docker run -itd ubuntu:16.04 /bin/bash
+  100  docker ps -ql
+  101  docker ps 
+  102  docker inspect df0be7955743
+  103  docker inspect df0be7955743 --format '{{.Name}} {{.Networks.IPAddress}}'
+  104  docker inspect df0be7955743 --format '{{.Name}} {{NetworkSettings.Networks.IPAddress}}'
+  105  docker inspect df0be7955743 --format '{{.Name}} {{.NetworkSettings.IPAddress}}'
+  106  docker ps 
+  107  docker stop df0be7955743
+  108  docker ps -a 
+  109  docker run -itd --name job1 ubuntu:16.04 /bin/bash
+  110  docker ps 
+  111  docker kill job1
+  112  docker ps 
+  113  docker ps -a
+  114  docker start job1
+  115  docker ps 
+  116  docker attach job1
+  117  docker ps 
+  118  docker kill job1
+  119  ls
+  120  docker ps 
+  121  docker start job1
+  122  docker ps 
+  123  docker attach job1
+  124  docker ps -a 
+  125  docker ps 
+  126  docker start job1
+  127  docker ps 
+  128  docker ps -a
+  129  docker ps -aq
+  130  docker rm $(docker ps -aq)
+  131  docker run -itd --name ppe:node1 ubuntu:16.04 /bin/bash
+  132  docker run -itd --name ppe-node1 ubuntu:16.04 /bin/bash
+  133  docker run -itd --name ppe-node2 ubuntu:16.04 /bin/bash
+  134  docker run -itd --name ppe-node3 ubuntu:16.04 /bin/bash
+  135  docker run -itd --name ercore-node1 ubuntu:16.04 /bin/bash
+  136  docker run -itd --name ercore-node2 ubuntu:16.04 /bin/bash
+  137  docker run -itd --name ercore-node3 ubuntu:16.04 /bin/bash
+  138  docker run -itd --name ercore-node4 ubuntu:16.04 /bin/bash
+  139  docker run -itd --name webapp-01 ubuntu:16.04 /bin/bash
+  140  docker run -itd --name webapp-02 ubuntu:16.04 /bin/bash
+  141  docker ps 
+  142  docker ps -qa
+  143  docker ps -a
+  144  docker ps -a| grep -i ppe
+  145  docker ps -a| grep -i ppe | awk -F" " '{print $1}'
+  146  docker kill $(docker ps -a| grep -i ppe | awk -F" " '{print $1}')
+  147  docker rm $(docker ps -a| grep -i ppe | awk -F" " '{print $1}')
+  148  docker images
+  149  docker rmi busybox
+  150  docker images
+  151  ls
+  152  cd devops-acc-29072019/
+  153  ls
+  154  mkdir docker
+  155  ls
+  156  cd docker/
+  157  ls
+  158  history > docker_hist.txt
+  159  vim docker_hist.txt 
+  160  vi docker_hist.txt 
+  161  ls
+  162  cd ..
+  163  s
+  164  ls
+  165  git pull 
+  166  git add . ; git commit -m "Docker Hist"; git push origin master 
+  167  ls
+  168  cd 
+  169  ls
+  170  docker run -it ubuntu:16.04 
+  171  docker ps -ql
+  172  docker inspect $(docker ps -ql)
+  173  curl 172.17.0.3
+  174  curl localhost
+  175  docker attach $(docker ps -ql)
+  176  curl 172.17.0.3
+  177  curl 172.17.0.3/info.html
+  178  docker attach $(docker ps -ql)
+  179  curl 172.17.0.3/info.html
+  180  docker ps 
+  181  docker ps -ql
+  182  docker commit -p -m "My First Apache Container Image" 12c186edac4f ubuntu-myapache:v1
+  183  docker images
+  184  curl 172.17.0.3/info.html
+  185  docker ps -ql
+  186  docker run -itd ubuntu-myapache:v1 /bin/bash
+  187  docker ps 
+  188  curl 172.17.0.4/info.html
+  189  docker inspect 2bf0d34f70be 
+  190  docker run -itd --name apache-01 ubuntu-myapache:v1 /bin/bash
+  191  docker run -itd --name apache-02 ubuntu-myapache:v1 /bin/bash
+  192  docker run -itd --name apache-03 ubuntu-myapache:v1 /bin/bash
+  193  curl 172.17.0.5/info.html
+  194  curl 172.17.0.6/info.html
+  195  curl 172.17.0.7/info.html
+  196  curl 172.17.0.6/info.html
+  197  docker ps 
+  198  docker inspect apache-01
+  199  curl 172.17.0.5/info.html
+  200  docker inspect apache-02
+  201  curl 172.17.0.12/info.html
+  202  docker inspect apache-03
+  203  curl 172.17.0.13/info.html
+  204  docker run -it --name test-update ubuntu-myapache:v1 /bin/bash
+  205  docker inspect test-update
+  206  curl "172.17.0.14"
+  207  curl 172.17.0.14/info.html
+  208  docker commit -p -m "My First Apache Container Image" test-update ubuntu-myapache:v2
+  209  docker images 
+  210  docker run -itd --name apache-v2-01 ubuntu-myapache:v2 /bin/bash
+  211  docker run -itd --name apache-v2-02 ubuntu-myapache:v2 /bin/bash
+  212  docker inspect apache-v2-01
+  213  curl 172.17.0.15/info.html
+  214  curl 172.17.0.16/info.html
+  215  ip addr 
+  216  yum install net-tools -y 
+  217  netstat -tulnp
+  218  iptables -L
+  219  docker run -itd --name apache-v2-03 -p 38080:80 ubuntu-myapache:v2 /bin/bash
+  220  netstat -tulnp
+  221  curl localhost
+  222  curl localhost:38080
+  223  curl localhost:38080/info.html
+  224  iptables -L
+  225  docker run -itd --name apache-v2-04 -p 38081:80 ubuntu-myapache:v2 /bin/bash
+  226  docker ps 
+  227  iptables -L
+  228  history 
+  229  ls
+  230  docker ps 
+  231  docker exec apache-v2-04 ps -ef 
+  232  docker exec apache-v2-04 apache2ctl --version
+  233  docker exec apache-v2-04 apache2ctl -v
+  234  ls
+  235  cd devops-acc-29072019/
+  236  ls
+  237  cd docker/
+  238  ls
+  239  history > docker_hist.txt 
+  240  vi docker_hist.txt 
+  241  ls
+  242  git add . ; git commit -m "Docker Hist-2"; git push origin master 
+  243  ls
+  244  cd ..
+  245  ls
+  246  cd docker/
+  247  ls
+  248  mkdir dockerfiles/apache -p 
+  249  ls
+  250  cd dockerfiles/apache/
+  251  ls
+  252  vim Dockerfile
+  253  vi Dockerfile
+  254  ls
+  255  cat Dockerfile 
+  256  docker kill $(docker ps -qa)
+  257  docker rm  $(docker ps -qa)
+  258  ls
+  259  docker images
+  260  docker build -t "amitvashist7/myapache-acc:v1" .
+  261  docker images
+  262  docker run -d --name apache-01 -p 38081:80 amitvashist7/myapache-acc:v1 
+  263  vi Dockerfile 
+  264  docker build -t "amitvashist7/myapache-acc:v1" .
+  265  docker run -d --name apache-02 -p 38081:80 amitvashist7/myapache-acc:v1 
+  266  docker ps 
+  267  docker ps -a
+  268  docker ps 
+  269  ls
+  270  vi amit.abc
+  271  vim Dockerfile 
+  272  vi Dockerfile 
+  273  docker build -t "amitvashist7/myapache-acc:v2" .
+  274  docker run -d --name apache-03 -p 38083:80 amitvashist7/myapache-acc:v2
+  275  ls
+  276  cat Dockerfile 
+  277  ls
+  278  cat /etc/redhat-release 
+  279  cp -rf /etc/redhat-release release
+  280  ls
+  281  ls -ltr 
+  282  ls
+  283  rm -rf 
+  284  cat /etc/redhat-release 
+  285  cat /etc/redhat-release  > release
+  286  ls
+  287  ls -ltr 
+  288  ls
+  289  rm -rf release 
+  290  ls
+  291  ll
+  292  cat centos-release 
+  293  ls
+  294  vi Dockerfile 
+  295  docker build -t "amitvashist7/myapache-acc:v3" .
+  296  docker run -d --name apache-04 -p 38084:80 amitvashist7/myapache-acc:v3
+  297  docker images 
+  298  history 
+  299  cat Dockerfile 
+  300  ls
+  301  docker images
+  302  docker run -d --name apache-05 amitvashist7/myapache-acc:v3
+  303  docker ps 
+  304  ls
+  305  cd ..
+  306  ls
+  307   ..
+  308  ls
+  309  docker login 
+  310  ls
+  311  docker images 
+  312  docker push amitvashist7/myapache-acc:v1
+  313  docker push amitvashist7/myapache-acc:v2
+  314  docker push amitvashist7/myapache-acc:v3
+  315  ls
+  316  docker ps 
+  317  docker images
+  318  docker tag amitvashist7/myapache-acc:v3 amitvashist7/myapache-acc:latest
+  319  docker images
+  320  docker push amitvashist7/myapache-acc:latest
+  321  docker kill $(docker ps -aq)
+  322  docker rm $(docker ps -aq)
+  323  ls
+  324  docker images
+  325  docker images | awk -F" " '{print $3}'
+  326  docker images | awk -F" " '{print $3}'| grep -v IMAGE
+  327  docker rmi $(docker images | awk -F" " '{print $3}'| grep -v IMAGE)
+  328  ls
+  329  docker images
+  330  docker ps -a 
+  331  docker rmi amitvashist7/myapache-acc:latest
+  332  docker rmi amitvashist7/myapache-acc:v3
+  333  docker images
+  334  docker rmi ubuntu:16.04
+  335  ls
+  336  docker images 
+  337  docker ps -a 
+  338  docker version 
+  339  docker logut 
+  340  docker logout 
+  341  docker run -d --name test-01 -p 38089:80 amitvashist7/myapache-acc
+  342  ls
+  343  docker images 
+  344  docker ps 
+  345  docker pull amitvashist7/apache-ex4
+  346  docker login 
+  347  docker pull amitvashist7/apache-ex4
+  348  ls
+  349  cd ..
+  350  ls
+  351  history > docker_hist.txt 

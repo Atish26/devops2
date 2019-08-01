@@ -1,0 +1,12 @@
+node {
+   git credentialsId: '01', url: 'https://github.com/amitvashist7/devops-acc-29072019.git'
+  
+  def Project_Path = "atmosphere/spring-boot-samples/spring-boot-sample-atmosphere"
+  
+dir (Project_Path) {  
+   sh label: '', script: 'mvn clean'
+   sh label: '', script: 'mvn compile'
+   sh label: '', script: 'mvn package'
+ }
+ 
+}
