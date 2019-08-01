@@ -1,0 +1,67 @@
+    1  ls
+    2  cd ../ansible/
+    3  ls
+    4  yum install ansible -y 
+    5  ls
+    6  mkdir demo01
+    7  cd demo01/
+    8  ls
+    9  vim inventory
+   10  cat inventory 
+   11  ssh localhost
+   12  ssh vagrant@localhost
+   13  vi /etc/ssh/sshd_config 
+   14  service sshd restart
+   15  ssh vagrant@localhost
+   16  ssh vagrant@172.31.0.10
+   17  ssh vagrant@172.31.0.11
+   18  ssh vagrant@172.31.0.12
+   19  ansible all -i inventory -m ping -u vagrant -k 
+   20  cat inventory 
+   21  ansible -v 
+   22  ansible -version 
+   23  ansible --version 
+   24  ls
+   25  ping 172.31.0.11
+   26  ansible-doc -l 
+   27  ansible-doc ping 
+   28  ansible-doc yum
+   29  ansible-doc service 
+   30  ansible-doc yum
+   31  ansible all -i inventory -m yum -a "name=net-tools state=present" -u vagrant -k 
+   32  ansible all -i inventory -m yum -a "name=net-tools state=present" -u vagrant -k -s
+   33  ansible all -i inventory -m yum -a "name=net-tools state=present" -u vagrant -k -sudo
+   34  ansible all -i inventory -m yum -a "name=net-tools state=present" -u vagrant -k --sudo
+   35  ansible all -i inventory -m yum -a "name=net-tools state=present" -u vagrant -k -b 
+   36  history 
+   37  ls
+   38  cd ..
+   39  ls
+   40  cp -rf demo01 demo02 
+   41  ls
+   42  cd demo02/
+   43  ls
+   44  vi inventory 
+   45  ls
+   46  rm 1
+   47  cat inventory 
+   48  ansible web -i inventory -m ping -u vagrant -k 
+   49  ansible db -i inventory -m ping -u vagrant -k 
+   50  vi inventory 
+   51  ansible dc -i inventory -m ping -u vagrant -k 
+   52  vi inventory 
+   53  ansible dc -i inventory -m ping -u vagrant -k 
+   54  vi inventory 
+   55  ansible dc -i inventory -m ping -u vagrant -k 
+   56  ansible all -i inventory -m ping -u vagrant -k 
+   57  vi inventory 
+   58  ansible all -i inventory -m ping -u vagrant -k 
+   59  vi inventory 
+   60  ansible all -i inventory -m ping -u vagrant -k 
+   61  cat inventory 
+   62  vim inventory 
+   63  ansible dc -i inventory -m ping  
+   64  ls
+   65  cd ..
+   66  ls
+   67  history > ansible_hist.txt
